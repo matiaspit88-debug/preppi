@@ -1,0 +1,114 @@
+export const GRADES = ["L", "E", "M", "C", "B", "A"] as const;
+export type Grade = (typeof GRADES)[number];
+
+export interface Subject {
+  id: string;
+  name: string;
+  short: string;
+  req?: boolean;
+  points: Record<Grade, number>;
+}
+
+export interface Program {
+  id: string;
+  name: string;
+  org: string;
+  threshold: number;
+  glyph: string;
+  weight: Partial<Record<string, number>>;
+}
+
+export const SUBJECTS: Subject[] = [
+  {
+    id: "ai",
+    name: "Äidinkieli",
+    short: "ÄI",
+    req: true,
+    points: { L: 33, E: 27.5, M: 21, C: 14.5, B: 9, A: 4 },
+  },
+  {
+    id: "maa",
+    name: "Matematiikka, pitkä",
+    short: "MAA",
+    points: { L: 43, E: 36, M: 27, C: 19, B: 12, A: 6 },
+  },
+  {
+    id: "fy",
+    name: "Fysiikka",
+    short: "FY",
+    points: { L: 30, E: 25, M: 19, C: 13, B: 8, A: 4 },
+  },
+  {
+    id: "ke",
+    name: "Kemia",
+    short: "KE",
+    points: { L: 30, E: 25, M: 19, C: 13, B: 8, A: 4 },
+  },
+  {
+    id: "bi",
+    name: "Biologia",
+    short: "BI",
+    points: { L: 28, E: 23, M: 17, C: 12, B: 7, A: 3 },
+  },
+  {
+    id: "en",
+    name: "Englanti, pitkä",
+    short: "EN",
+    points: { L: 25, E: 21, M: 16, C: 11, B: 7, A: 3 },
+  },
+  {
+    id: "yh",
+    name: "Yhteiskuntaoppi",
+    short: "YH",
+    points: { L: 24, E: 20, M: 15, C: 10, B: 6, A: 3 },
+  },
+  {
+    id: "psy",
+    name: "Psykologia",
+    short: "PS",
+    points: { L: 24, E: 20, M: 15, C: 10, B: 6, A: 3 },
+  },
+];
+
+export const PROGRAMS: Program[] = [
+  {
+    id: "laakis",
+    name: "Lääketiede",
+    org: "Helsingin yliopisto",
+    threshold: 132,
+    glyph: "plus",
+    weight: { maa: 1.0, fy: 1.0, ke: 1.0, bi: 0.6, ai: 0.5 },
+  },
+  {
+    id: "di",
+    name: "Tekniikka, DI",
+    org: "Aalto-yliopisto",
+    threshold: 92,
+    glyph: "octagon",
+    weight: { maa: 1.0, fy: 0.9, ke: 0.7, en: 0.6, ai: 0.5 },
+  },
+  {
+    id: "kauppis",
+    name: "Kauppatieteet",
+    org: "Aalto-yliopisto",
+    threshold: 78,
+    glyph: "cross",
+    weight: { maa: 0.9, ai: 0.8, en: 0.7, yh: 0.6, psy: 0.5 },
+  },
+  {
+    id: "oikis",
+    name: "Oikeustiede",
+    org: "Turun yliopisto",
+    threshold: 86,
+    glyph: "diamond",
+    weight: { ai: 1.0, yh: 0.9, en: 0.7, psy: 0.6, maa: 0.5 },
+  },
+];
+
+export const INITIAL_SELECTION: Record<string, string> = {
+  ai: "E",
+  maa: "M",
+  fy: "M",
+  ke: "C",
+  en: "L",
+};
