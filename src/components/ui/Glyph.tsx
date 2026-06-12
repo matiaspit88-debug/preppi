@@ -66,6 +66,18 @@ export default function Glyph({ name, size = 26 }: GlyphProps) {
           />
         </svg>
       );
+    case "check":
+      return (
+        <svg width={s} height={s} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path
+            d="M5 12.5l4.5 4.5L19 7"
+            stroke={fill}
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
     default:
       return null;
   }
