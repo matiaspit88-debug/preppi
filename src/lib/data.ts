@@ -152,3 +152,49 @@ export const TERMS: Term[] = [
   { id: "k27", label: "Kevät 2027",  short: "YO·27K", daysLeft: 281 },
   { id: "s27", label: "Syksy 2027",  short: "YO·27S", daysLeft: 463 },
 ];
+
+// ---------- Edistyminen ----------
+
+export interface SubjectProgress {
+  subj: string;
+  name: string;
+  pct: number;
+  total: number;
+  done: number;
+}
+
+export const PROGRESS: SubjectProgress[] = [
+  { subj: "MAA", name: "Matematiikka, pitkä", pct: 72, total: 48, done: 35 },
+  { subj: "FY",  name: "Fysiikka",            pct: 64, total: 32, done: 20 },
+  { subj: "KE",  name: "Kemia",               pct: 58, total: 30, done: 17 },
+  { subj: "EN",  name: "Englanti, pitkä",     pct: 81, total: 26, done: 21 },
+  { subj: "ÄI",  name: "Äidinkieli",          pct: 49, total: 22, done: 11 },
+];
+
+export interface CheckIn {
+  id: number;
+  label: string;
+  meta: string;
+  done: boolean;
+}
+
+export const CHECKINS: CheckIn[] = [
+  { id: 1, label: "Matematiikka — derivaatta",  meta: "75 min · 6 tehtävää",  done: true  },
+  { id: 2, label: "Englanti — lukukappale",     meta: "45 min · set 12",      done: true  },
+  { id: 3, label: "Fysiikka — sähkökenttä",     meta: "60 min · YO k2019/8",  done: false },
+  { id: 4, label: "Kemia — titraus",            meta: "50 min · harjoitus",   done: false },
+  { id: 5, label: "Äidinkieli — esseluonnos",   meta: "40 min · jäsentely",   done: false },
+];
+
+// 7 weeks × 7 days activity heatmap (0–3 intensity)
+export const HEATMAP: number[][] = [
+  [2, 3, 1, 2, 3, 1, 0],
+  [3, 2, 2, 3, 1, 2, 1],
+  [1, 2, 3, 2, 2, 0, 1],
+  [2, 3, 2, 1, 3, 2, 0],
+  [3, 1, 2, 3, 2, 1, 2],
+  [2, 2, 3, 2, 3, 1, 0],
+  [1, 3, 2, 3, 0, 0, 0],
+];
+
+export const STREAK = 23;

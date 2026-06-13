@@ -78,6 +78,12 @@ export default function Glyph({ name, size = 26 }: GlyphProps) {
           />
         </svg>
       );
+    case "spark":
+      return (
+        <svg width={s} height={s} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z" fill={fill} />
+        </svg>
+      );
     default:
       return null;
   }
