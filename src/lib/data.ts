@@ -112,3 +112,43 @@ export const INITIAL_SELECTION: Record<string, string> = {
   ke: "C",
   en: "L",
 };
+
+// ---------- Lukusuunnitelma ----------
+
+export interface StudyBlock {
+  id: number;
+  time: string;
+  dur: number;
+  subj: string;
+  title: string;
+  type: string;
+  done: boolean;
+}
+
+export const WEEK = ["MA", "TI", "KE", "TO", "PE", "LA", "SU"] as const;
+
+export const TODAY_PLAN: StudyBlock[] = [
+  { id: 1, time: "08:30", dur: 75, subj: "MAA", title: "Derivaatta — ketjusääntö",   type: "Teoria + tehtävät 4.1–4.6",      done: true  },
+  { id: 2, time: "10:00", dur: 45, subj: "EN",  title: "Lukukappale + sanasto",       type: "Abstract reading · set 12",      done: true  },
+  { id: 3, time: "11:15", dur: 60, subj: "FY",  title: "Sähkökenttä",                 type: "Kertaus + YO-tehtävä k2019/8",   done: false },
+  { id: 4, time: "13:30", dur: 50, subj: "KE",  title: "Hapot ja emäkset",            type: "Titraus — laskuharjoitus",       done: false },
+  { id: 5, time: "15:00", dur: 40, subj: "ÄI",  title: "Esseen jäsentely",            type: "Materiaalipohjainen kirjoit.",   done: false },
+];
+
+export const WEEK_LOAD = [3.5, 4.5, 4.0, 3.0, 4.5, 2.0, 1.5] as const;
+export const TODAY_INDEX = 2;
+export const DAYS_LEFT = 41;
+
+export interface Term {
+  id: string;
+  label: string;
+  short: string;
+  daysLeft: number;
+}
+
+export const TERMS: Term[] = [
+  { id: "k26", label: "Kevät 2026",  short: "YO·26K", daysLeft: 12  },
+  { id: "s26", label: "Syksy 2026",  short: "YO·26S", daysLeft: 98  },
+  { id: "k27", label: "Kevät 2027",  short: "YO·27K", daysLeft: 281 },
+  { id: "s27", label: "Syksy 2027",  short: "YO·27S", daysLeft: 463 },
+];
