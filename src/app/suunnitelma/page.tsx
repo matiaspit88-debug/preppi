@@ -12,6 +12,12 @@ import {
   type StudyBlock,
 } from "@/lib/data";
 
+const KOKEET = [
+  { day: "KE", date: "16.9.", aine: "Yhteiskuntaoppi", taso: "Pitkä oppimäärä", daysLeft: 94 },
+  { day: "MA", date: "21.9.", aine: "Ruotsi",          taso: "Keskipitkä",      daysLeft: 99 },
+  { day: "MA", date: "28.9.", aine: "Saksa",           taso: "Lyhyt oppimäärä", daysLeft: 106 },
+];
+
 const DAY_NAMES = [
   "Maanantai",
   "Tiistai",
@@ -212,6 +218,30 @@ export default function SuunnitelmaPage() {
           </div>
         </aside>
       </div>
+
+      {/* Tulevat kokeet */}
+      <section className="kokeet-section">
+        <div className="kokeet-head">
+          <span className="num mono">Tulevat kokeet</span>
+          <span className="rule" />
+        </div>
+        <div className="kokeet-list">
+          {KOKEET.map((k, i) => (
+            <div key={i} className="kokeet-row" style={{ animationDelay: `${i * 60}ms` }}>
+              <div className="kokeet-date">
+                <span className="kokeet-day mono">{k.day}</span>
+                <span className="kokeet-pvm mono">{k.date}</span>
+              </div>
+              <div className="kokeet-divider" />
+              <div className="kokeet-info">
+                <span className="kokeet-aine">{k.aine}</span>
+                <span className="kokeet-taso mono">{k.taso}</span>
+              </div>
+              <div className="kokeet-daysLeft mono">{k.daysLeft} pv</div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
