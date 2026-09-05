@@ -1,5 +1,6 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import { useState } from "react";
 import Glyph from "@/components/ui/Glyph";
 import Eyebrow from "@/components/ui/Eyebrow";
@@ -32,6 +33,9 @@ const MAX_LOAD = Math.max(...WEEK_LOAD);
 const TOTAL_WEEK_H = WEEK_LOAD.reduce((a, b) => a + b, 0).toFixed(1);
 
 export default function SuunnitelmaPage() {
+  // Sivu ei ole vielä julkinen: ohjaa Kotiin, kunnes se avataan navigaatiosta.
+  redirect("/");
+
   const [day, setDay] = useState(TODAY_INDEX);
   const [plan, setPlan] = useState<StudyBlock[]>(
     TODAY_PLAN.map((b) => ({ ...b }))

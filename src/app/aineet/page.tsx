@@ -1,5 +1,6 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import { useState } from "react";
 import Glyph from "@/components/ui/Glyph";
 import CountUp from "@/components/ui/CountUp";
@@ -9,6 +10,9 @@ import { SUBJECTS, GRADES, PROGRAMS, INITIAL_SELECTION } from "@/lib/data";
 type Selection = Record<string, string>;
 
 export default function AineetPage() {
+  // Sivu ei ole vielä julkinen: ohjaa Kotiin, kunnes se avataan navigaatiosta.
+  redirect("/");
+
   const [sel, setSel] = useState<Selection>({ ...INITIAL_SELECTION });
   const [active, setActive] = useState<string | null>(null);
 

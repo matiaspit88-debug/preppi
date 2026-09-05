@@ -1,5 +1,6 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import { useState } from "react";
 import Glyph from "@/components/ui/Glyph";
 import CountUp from "@/components/ui/CountUp";
@@ -18,6 +19,9 @@ const TOT_ALL = PROGRESS.reduce((a, s) => a + s.total, 0);
 const OVERALL = Math.round((TOT_DONE / TOT_ALL) * 100);
 
 export default function EdistyminenPage() {
+  // Sivu ei ole vielä julkinen: ohjaa Kotiin, kunnes se avataan navigaatiosta.
+  redirect("/");
+
   const [checks, setChecks] = useState<CheckIn[]>(
     CHECKINS.map((c) => ({ ...c }))
   );
