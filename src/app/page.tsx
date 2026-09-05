@@ -1,34 +1,32 @@
-import Link from "next/link";
 import Glyph from "@/components/ui/Glyph";
 
 const WORD = "Preppi".split("");
 const OFFSETS = [0, 12, -6, 10, -4, 16];
 const ROTATIONS = [0, 0, 0, 0, 0, 3];
 
+// Nämä kortit eivät vielä johda mihinkään (href säilytetty tulevaa varten) -
+// ne näyttävät vain lähestyvät koepäivät.
 const CARDS = [
   {
     href: "/aineet",
     idx: "01",
-    glyph: "plus",
-    title: "Ainevalinta",
-    title2: "& pisteet",
-    meta: "4 HAKUKOHDETTA",
+    glyph: "diamond",
+    title: "Yhteiskuntaoppi",
+    meta: "16.9.",
   },
   {
     href: "/suunnitelma",
     idx: "02",
-    glyph: "octagon",
-    title: "Lukusuunni-",
-    title2: "telma",
-    meta: "5 BLOKKIA / PV",
+    glyph: "diamond",
+    title: "Ruotsi",
+    meta: "21.9.",
   },
   {
     href: "/edistyminen",
     idx: "03",
-    glyph: "cross",
-    title: "Edistymisen",
-    title2: "seuranta",
-    meta: "64% VALMIS",
+    glyph: "diamond",
+    title: "Saksa",
+    meta: "28.9.",
   },
 ];
 
@@ -57,17 +55,13 @@ export default function KotiPage() {
       <div className="koti-index stagger">
         <div className="koti-cards">
           {CARDS.map((c, i) => (
-            <Link
+            <div
               key={c.href}
-              href={c.href}
               className="koti-card"
               style={{ animationDelay: `${160 + i * 80}ms` }}
             >
               <div className="koti-card-top">
                 <span className="koti-card-idx mono">{c.idx}</span>
-                <span className="koti-card-arrow">
-                  <Glyph name="arrow" size={18} />
-                </span>
               </div>
               <div className="koti-card-glyph">
                 <Glyph name={c.glyph} size={30} />
@@ -75,11 +69,10 @@ export default function KotiPage() {
               <div className="koti-card-foot">
                 <div className="koti-card-title">
                   <div>{c.title}</div>
-                  <div>{c.title2}</div>
                 </div>
                 <div className="koti-card-meta mono">{c.meta}</div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

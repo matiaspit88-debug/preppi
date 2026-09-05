@@ -392,6 +392,7 @@ button { font-family: inherit; cursor: pointer; }
   flex-direction: column;
   color: var(--ink);
   box-shadow: var(--shadow-soft);
+  cursor: pointer;
   transition: transform 0.45s var(--ease), background 0.45s var(--ease), color 0.45s var(--ease), box-shadow 0.45s var(--ease);
   animation: itemIn 0.55s var(--ease) both;
 }
@@ -400,6 +401,9 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--paper);
   transform: translateY(-6px);
   box-shadow: var(--shadow-card);
+}
+.koti-card:active {
+  transform: translateY(-2px) scale(0.98);
 }
 
 .koti-card-top {
